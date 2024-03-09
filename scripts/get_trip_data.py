@@ -5,9 +5,23 @@ Get NYC Trip Data
 
 import pyarrow.parquet as pq
 import pandas as pd
+import os
 
-green_nov_data = pq.read_table('data/green_tripdata_2023-11.parquet')
-green_nov_df: pd.DataFrame = green_nov_data.to_pandas()
+def get_all_trip_data_in_data_directory() -> pd.DataFrame:
+    """Returns all trip data in the directory as a single dataframe.
+    
+    Returns: pd.DataFrame
+    """
+
+    for file in os.listdir("./data"):
+        print(file)
+
+    return pd.DataFrame()
+
+get_all_trip_data_in_data_directory()
+
+# green_nov_data = pq.read_table('data/green_tripdata_2023-11.parquet')
+# green_nov_df: pd.DataFrame = green_nov_data.to_pandas()
 
 # green_nov_df.to_csv("test.csv")
 
